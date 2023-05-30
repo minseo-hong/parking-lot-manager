@@ -1,0 +1,24 @@
+<%- include('../../includes/top.ejs') %>
+  <!-- Page Title -->
+  <h1 class="h2 mt-5 mb-3">Add the car</h1>
+  <!-- Car Add-Form -->
+  <form method="POST">
+    <div class="mb-3">
+      <label for="owner" class="form-label">Owner</label>
+      <input type="text" name="owner" placeholder="예) 홍민서" class="form-control" id="owner" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="model" class="form-label">Model</label>
+      <input type="text" name="model" placeholder="예) 현대 제네시스" class="form-control" id="model" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="carNum" class="form-label">Car Number</label>
+      <input type="text" name="carNum" placeholder="예) 10가 1522" class="form-control" id="carNum" autocomplete="off">
+    </div>
+    <div class="d-flex mt-4">
+      <a href="/cars/overview" class="btn btn-secondary"><i class="bi bi-arrow-left"></i>&nbsp;Back</a>
+      &nbsp;
+      <button type="submit" class="btn btn-primary"><i class="bi bi-check-lg"></i>&nbsp;Submit</button>
+    </div>
+  </form>
+<%- include('../../includes/bottom.ejs') %>

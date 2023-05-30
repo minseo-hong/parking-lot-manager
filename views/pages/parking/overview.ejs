@@ -1,0 +1,49 @@
+<%- include('../../includes/top.ejs') %>
+  <!-- Page Title -->
+  <h1 class="h2 mt-5 mb-3">Parking Overview</h1>
+  <!-- Search Bar -->
+  <%- include('../../components/search-bar.ejs') %>
+  <!-- Parking List -->
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% for (parking of parkings) { %>
+      <!-- Parking item -->
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
+            <h5 class="card-title"><%= parking.name %></h5>
+            <% if (parking.car) { %>
+              <p class="card-text"><%= parking.car %></p>
+              <p class="card-text text-danger fw-semibold">Unavailable</p>
+              <a href="#" class="card-text text-decoration-none" data-bs-toggle="modal" data-bs-target="#parking<%= parking.name %>RemoveModal"><small class="text-danger"><i class="bi bi-dash-circle-fill"></i>&nbsp;Remove the car</small></a>
+              <!-- Remove-Check Modal -->
+              <div class="modal fade" id="parking<%= parking.name %>RemoveModal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="parking<%= parking.name %>RemoveModalLabel">Remove the car</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure to remove <span class="fw-semibold"><%= parking.car %></span> in the parking spot <span class="fw-semibold"><%= parking.name %></span>?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <form action="/parking/remove-car" method="POST">
+                        <input type="hidden" name="parkingName" value="<%= parking.name %>">
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                      </form>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% } else { %>
+              <p class="card-text text-secondary">No Car</p>
+              <p class="card-text text-success fw-semibold">Available</p>
+              <a href="/parking/<%= parking.name %>/add-car" class="card-text text-decoration-none"><small class="text-primary"><i class="bi bi-plus-circle-fill"></i>&nbsp;Add the car</small></a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+<%- include('../../includes/bottom.ejs') %>

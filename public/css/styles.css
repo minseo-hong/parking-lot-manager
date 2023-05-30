@@ -1,0 +1,22 @@
+.sidebar {
+  width: 275px;
+}
+
+.sidebar-content {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 275px;
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.offcanvas.offcanvas-end {
+  width: 300px;
+}
+
+.content {
+  display: none;
+}
