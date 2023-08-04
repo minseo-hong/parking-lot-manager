@@ -1,4 +1,4 @@
-# 주차장 관리 페이지
+# 주차장 관리 웹사이트
 ## 실행 방법
 1. Node.js를 설치하여 npm 다운로드 - [다운 링크](https://nodejs.org)
 2. 본 프로젝트를 다운 받아서 Visual Studio Code로 열기 - [VSCode 다운 링크](https://code.visualstudio.com/)
